@@ -18,7 +18,7 @@
 | :-------: |
 | 18 ou 20 *|
 
-Cela dépend de la version du protocol, 20 si la version du protocol utilisée est
+`*` Cela dépend de la version du protocol, 20 si la version du protocol utilisée est
 5, 18 sinon.
 
 ### Dessiner une ligne
@@ -47,6 +47,8 @@ On n'utilisera pas ce paquet.
 | 1 Octet   | 2 Octets  | ? Octets        | ? Octets | 4 Octet  | 2 ou 4 Octets* | ? x 4 Octets |
 | :-------: | :-------: | :-------------: | :------: | :------: | :------------: | :----------: |
 | 16        | DeSize    | Cellules Mortes | Cellules | 0        | RmSize         | Id           |
+
+`*` Cela dépend de la version du protocol : 4 Octets pour la version 5 et 2 pour les autres.
 
 ##### Cellules Mortes
 

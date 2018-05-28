@@ -44,12 +44,40 @@ On n'utilisera pas ce paquet.
 ### Mettre à jour les Cellules
 
 #### Paquet
+| 1 Octet   | 2 Octets  | ? Octets        | ? Octets | 4 Octet  | 2 ou 4 Octets* | ? x 4 Octets |
+| :-------: | :-------: | :-------------: | :------: | :------: | :------------: | :----------: |
+| 16        | DeSize    | Cellules Mortes | Cellules | 0        | RmSize         | Id           |
 
-| 1 Octet   | 2 Octets  || 4 Octets  | 4 Octets  | 8 Octets  || 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  |
-| :-------: | :-------: || :-------: | :-------: | :-------: || :-------: | :-------: | :-------: | :-------: |
-| 16        | DSize     || Id (Eaten)| Id (Eater)| Bottom    || Id        | X         | Y         | Size      |
+##### Cellules Mortes
 
-À terminer d'analyser
+| 4 Octets  | 4 Octets  |
+| :-------: | :-------: |
+| Id (Eaten)| Id (Eater)|
+
+##### Cellules
+
+###### Protocole Version 5
+
+| 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  | 1 Octet   | 1 Octet   | 1 Octet   | 1 Octet   | ? Octets      | 1 Octet   |
+| :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-----------: | :-------: |
+| Id        | X         | Y         | Size      | R         | G         | B         | Flags     | Name (Unicode)| 0         |
+
+###### Protocole Version ~
+
+| 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  | 1 Octet   | 1 Octet   | 1 Octet   | 1 Octet   | ? Octets   | 1 Octet   |
+| :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :--------: | :-------: |
+| Id        | X         | Y         | Size      | R         | G         | B         | Flags     | Name (UTF8)| 0         |
+
+
+### Mettre à jour la Position
+
+#### Paquet
+
+| 1 Octet   | 4 Octets  | 4 Octets  | 4 Octets  |
+| :-------: | :-------: | :-------: | :-------: |
+| 17        | X         | Y         | Size      |
 
 
 ### Messages Clients
+
+...

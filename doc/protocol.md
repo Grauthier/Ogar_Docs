@@ -45,9 +45,9 @@ On n'utilisera pas ce paquet.
 
 #### Paquet
 
-| 1 Octet   | 2 Octets  || 4 Octets  | 4 Octets  | 8 Octets  | ...  || 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  | ...  |
-| :-------: | :-------: || :-------: | :-------: | :-------: | :--: || :-------: | :-------: | :-------: | :-------: | :--: |
-| 16        | DSize     || Id (Eaten)| Id (Eater)| Bottom    | ...  || Id        | X         | Y         | Size      | ...  |
+| 1 Octet   | 2 Octets  || 4 Octets  | 4 Octets  | 8 Octets  || 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  |
+| :-------: | :-------: || :-------: | :-------: | :-------: || :-------: | :-------: | :-------: | :-------: |
+| 16        | DSize     || Id (Eaten)| Id (Eater)| Bottom    || Id        | X         | Y         | Size      |
 
 À terminer d'analyser
 

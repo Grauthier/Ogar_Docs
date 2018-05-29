@@ -61,7 +61,7 @@ Le joueur voit à **1024 x 592** unités de distance
 
 Le joueur peut se split jusqu'en **16** fois si il a au moins **36** de masse
 
-Il faut **30** secondes avant que les cellules puissent être recombinées
+Il faut **30 + 0.02 \* masse** secondes (arrondi au supérieur) avant que les cellules puissent être recombinées
 
 Le joueur commence avec **10** de masse et ne peut pas tomber en dessous de **9**
 

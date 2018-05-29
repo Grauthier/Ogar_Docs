@@ -6,32 +6,32 @@ Les commandes serveurs sont parsées dans *index.js* et tirées de *modules/Comm
 
 |  Propriété                        |  Doc                                                   |
 |-----------------------------------|--------------------------------------------------------|
-| addbot [number]               |    Ajoute un bot au serveur                            |
-| kickbot [number]              |    Kick number bots                                    |
-| board [string] [string] …     |    Affiche le string du tableau des scores             |
-| boardreset                    |    Réinitialise le string du tableau des scores        |
-| change [setting] [value       |    Change le paramètre settings                        |
-| clear                         |    Clear la console                                    |
-| color [PlayerID] [R] [G] [B]  |    Attribue une couleur à un joueur                    |
-| exit                          |    Stoppe le serveur                                   |
-| food [X] [Y] [mass]           |    Fait apparaître de la nourriture a l'endroit desire |
-| gamemode [id]                 |    Change le mode de jeu                               |
-| kick [PlayerID]               |    Kick un bot ou un client par ID                     |
-| kickall                       |    Kick tous les bots et les clients                   |
-| kill [PlayerID]               |    Tue une cellule par ID                              |
-| killall                       |    Tue tout le monde                                   |
-| mass [PlayerID] [mass]        |    Definit la masse d'un client par ID                 |
-| merge [PlayerID]              |    Assemble un client splitte en une seule cellule     |
-| name [PlayerID] [name]        |    Change le nom d'une cellule par ID                  |
-| playerlist                    |    Reccupere la liste des cellules                     |
-| pause                         |    PAUSE, plus personne ne bouge                       |
-| reload                        |    Reload la configuration                             |
-| resetantiteam [PlayerID]      |    ???? reset anti-team effect on client               |
-| status                        |    Statut du serveur                                   |
-| tp [PlayerID] [X] [Y]         |    Teleporte un joueur par ID                          |
-| virus [X] [Y] [mass]          |    Spawn un virus                                      |
-| pl                            |    Alias de playerlist                                 |
-| st                            |    Alias de status                                     |
+| **addbot [number]**               |    Ajoute un bot au serveur                            |
+| **kickbot [number]**              |    Kick number bots                                    |
+| **board [string] [string] …**     |    Affiche le string du tableau des scores             |
+| **boardreset**                    |    Réinitialise le string du tableau des scores        |
+| **change [setting] [value]**      |    Change le paramètre settings                        |
+| **clear**                         |    Clear la console                                    |
+| **color [PlayerID] [R] [G] [B]**  |    Attribue une couleur à un joueur                    |
+| **exit**                          |    Stoppe le serveur                                   |
+| **food [X] [Y] [mass]**           |    Fait apparaître de la nourriture a l'endroit desire |
+| **gamemode [id]**                 |    Change le mode de jeu                               |
+| **kick [PlayerID]**               |    Kick un bot ou un client par ID                     |
+| **kickall**                       |    Kick tous les bots et les clients                   |
+| **kill [PlayerID]**               |    Tue une cellule par ID                              |
+| **killall**                       |    Tue tout le monde                                   |
+| **mass [PlayerID] [mass]**        |    Definit la masse d'un client par ID                 |
+| **merge [PlayerID]**              |    Assemble un client splitte en une seule cellule     |
+| **name [PlayerID] [name]**        |    Change le nom d'une cellule par ID                  |
+| **playerlist**                    |    Reccupere la liste des cellules                     |
+| **pause**                         |    PAUSE, plus personne ne bouge                       |
+| **reload**                        |    Reload la configuration                             |
+| **resetantiteam [PlayerID]**      |    ???? reset anti-team effect on client               |
+| **status**                        |    Statut du serveur                                   |
+| **tp [PlayerID] [X] [Y]**         |    Teleporte un joueur par ID                          |
+| **virus [X] [Y] [mass]**          |    Spawn un virus                                      |
+| **pl**                            |    Alias de playerlist                                 |
+| **st**                            |    Alias de status                                     |
 
 
 ## Configuration initiale

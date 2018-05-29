@@ -38,6 +38,15 @@ Les commandes serveurs sont parsées dans *index.js* et tirées de *modules/Comm
 
 ***GameServer.js*** (doc) et ***gameserver.ini*** (valeurs et doc)
 
+### Types de cellules
+
+| Code | Type |
+|------|------|
+| 0    | Player |
+| 1    | Food |
+| 2    | Virus |
+| 3    | Masse ejectée |
+
 ### Cellules (toutes)
 
 La taille d'une cellule est **sqrt(100*masse)**
@@ -77,6 +86,8 @@ La food est de taille **1** et a **0.5** chance de grossir jusqu'à **5** avec *
 
 
 ### Virus
+
+
 
 Un virus est de taille **100** et et explose au bout de **7** tirs de masse
 

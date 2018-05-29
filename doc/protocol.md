@@ -1,86 +1,133 @@
-# Protocol Ogar
+Protocole Ogar
+===============
 
-## Messages Serveurs
+Messages Serveurs
+------------------
 
-### Ajouter une Cellule
+## Ajouter une Cellule
 
-#### Paquet
+### Paquet
 
 | 1 Octet   | 4 Octets |
 | :-------: |:--------:|
 | 32        | Id       |
 
-### Supprimer toutes les Cellules
+* **32 (unsigned int)** Identifiant du paquet.
+* **Id (unsigned int)** Identifiant de la cellule.
 
-#### Paquet
+## Supprimer toutes les Cellules
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
-| 18 ou 20 *|
+| 18 ou 20  |
 
-`*` Cela dépend de la version du protocol, 20 si la version du protocol utilisée est
-5, 18 sinon.
+* **18 (unsigned int)** Identifiant du paquet.
+* **20 (unsigned int)** Identifiant du paquet pour la **version 5** du protocole.
 
-### Dessiner une ligne
+## Dessiner une ligne (Non utilisé)
 
-#### Paquet
+### Paquet
 
 | 1 Octet   | 2 Octets  | 2 Octets  |
 | :-------: | :-------: | :-------: |
 | 21        | X         | Y         |
 
-### Placer les bordures
+* **21 (unsigned int)** Identifiant du paquet.
+* **X (unsigned int)** Coordonnée X
+* **Y (unsigned int)** Coordonnée Y
 
-#### Paquet
+## Placer les bordures
+
+### Paquet
 
 | 1 Octet   | 8 Octets  | 8 Octets  | 8 Octets  | 8 Octets  |
 | :-------: | :-------: | :-------: | :-------: | :-------: |
 | 64        | Left      | Top       | Right     | Bottom    |
 
-### Mettre à jour le tableau des scores
+* **64 (unsigned int)** Identifiant du paquet.
+* **Left (float)** Distance entre le centre et la bordure gauche.
+* **Top (float)** Distance entre le centre et la bordure haute.
+* **Right (float)** Distance entre le centre et la bordure droite.
+* **Bottom (float)** Distance entre le centre et la bordure basse.
+
+## Mettre à jour le tableau des scores
 
 On n'utilisera pas ce paquet.
 
-### Mettre à jour les Cellules
+## Mettre à jour les Cellules
 
-#### Paquet
-| 1 Octet   | 2 Octets  | ? Octets        | ? Octets | 4 Octet  | 2 ou 4 Octets* | ? x 4 Octets |
+### Paquet
+| 1 Octet   | 2 Octets  | ? Octets        | ? Octets | 4 Octet  | 2 ou 4 Octets`*` | ? x 4 Octets |
 | :-------: | :-------: | :-------------: | :------: | :------: | :------------: | :----------: |
 | 16        | DeSize    | Cellules Mortes | Cellules | 0        | RmSize         | Id           |
 
+
+* **16 (unsigned int)** Identifiant du paquet.
+* **DeSize (unsigned int)** Nombre de cellules mortes.
+* **0 (unsigned int)** Valeur de fin pour la liste des cellules.
+* **RmSize (unsigned int)** Nombre de cellules à désafficher.
+* **Id (unsigned int)** Identifiant de la cellule à désafficher. Il y a au total (_RmSize_ cellules à désafficher)
+
 `*` Cela dépend de la version du protocol : 4 Octets pour la version 5 et 2 pour les autres.
 
-##### Cellules Mortes
+#### Cellules Mortes
 
 | 4 Octets  | 4 Octets  |
 | :-------: | :-------: |
 | Id (Eaten)| Id (Eater)|
 
-##### Cellules
+* **Id (Eaten) (unsigned int)** Identifiant de la cellule mangée.
+* **Id (Eater) (unsigned int)** Identifiant de la cellule mangeuse.
 
-###### Protocole Version 5
+
+#### Cellules
+
+##### Protocole Version 5
 
 | 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  | 1 Octet   | 1 Octet   | 1 Octet   | 1 Octet   | ? Octets      | 1 Octet   |
 | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-----------: | :-------: |
 | Id        | X         | Y         | Size      | R         | G         | B         | Flags     | Name (Unicode)| 0         |
 
-###### Protocole Version ~
+##### Protocole Version ~
 
 | 4 Octets  | 4 Octets  | 4 Octets  | 2 Octets  | 1 Octet   | 1 Octet   | 1 Octet   | 1 Octet   | ? Octets   | 1 Octet   |
 | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :--------: | :-------: |
-| Id        | X         | Y         | Size      | R         | G         | B         | Flags     | Name (UTF8)| 0         |
+| Id        | X         | Y         | Size      | Flags     | R         | G         | B         | Name (UTF8)| 0         |
 
+* **Id (unsigned int)** Identifiant de la cellule.
+* **X (int)** Coordonnée X de la cellule.
+* **Y (int)** Coordonnée Y de la cellule.
+* **Size (unsigned int)** Taille de la cellule.
+* **R (unsigned int)** Composante rouge de la cellule.
+* **G (unsigned int)** Composante verte de la cellule.
+* **B (unsigned int)** Composante bleu de la cellule.
+* **Flags (unsigned int)** Masque des valeurs suivantes
+  * **1** La cellule possède des épines.
+  * **2 `*`** Toujours présent.
+  * **8 `*`** La cellule possède un nom
+* **Name** Nom de la cellule.
+* **0 (unsigned int)** Valeur de fin pour le nom de la cellule.
 
-### Mettre à jour la Position
+`*` Ces valeures ne sont pas présentes dans la **version 5** du protocole.
 
-#### Paquet
+## Mettre à jour la Position
+
+### Paquet
 
 | 1 Octet   | 4 Octets  | 4 Octets  | 4 Octets  |
 | :-------: | :-------: | :-------: | :-------: |
 | 17        | X         | Y         | Size      |
 
+* **Id (unsigned int)** Identifiant du paquet.
+* **X (float)** Coordonnée X de la cellule.
+* **Y (float)** Coordonnée Y de la cellule.
+* **Size (float)** Taille de la cellule.
 
-### Messages Clients
+
+Messages Clients
+-----------------
 
 ### Ouvrir une connexion
 

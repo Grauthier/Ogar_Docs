@@ -34,7 +34,7 @@ Les commandes serveurs sont parsées dans *index.js* et tirées de *modules/Comm
 | **st**                            |    Alias de status                                     |
 
 
-## Configuration initiale
+## Règles du jeu
 
 ***GameServer.js*** (doc) et ***gameserver.ini*** (valeurs et doc)
 
@@ -79,3 +79,13 @@ La food est de taille **1** et a **0.5** chance de grossir jusqu'à **5** avec *
 ### Virus
 
 Un virus est de taille **100** et et explose au bout de **7** tirs de masse
+
+
+
+## Déplacement du joueur
+
+On peut sortir de **0.5** rayon de cellule de la map
+
+La cellule se déplace en direction de la souris :
+- **x = sin(arctan((sourisX - posX)/(sourisY - posY)))**
+- **y = cos(arctan((sourisX - posX)/(sourisY - posY)))**

@@ -10,7 +10,7 @@ $ nodejs index.js
 
 Ctrl+c * 2 pour arrêter le serveur
 
-Dans le répertoire hgome
+Dans le répertoire home
 ```shell
 $ visualise -p localhost
 ```

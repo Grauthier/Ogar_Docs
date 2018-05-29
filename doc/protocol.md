@@ -120,7 +120,7 @@ On n'utilisera pas ce paquet.
 | :-------: | :-------: | :-------: | :-------: |
 | 17        | X         | Y         | Size      |
 
-* **Id (unsigned int)** Identifiant du paquet.
+* **17 (unsigned int)** Identifiant du paquet.
 * **X (float)** Coordonnée X de la cellule.
 * **Y (float)** Coordonnée Y de la cellule.
 * **Size (float)** Taille de la cellule.
@@ -129,75 +129,97 @@ On n'utilisera pas ce paquet.
 Messages Clients
 -----------------
 
-### Ouvrir une connexion
+## Ouvrir une connexion
 
-#### Paquet
+### Paquet
 
 | 1 Octet   | 4 Octets        |
 | :-------: | :-------------: |
 | 254       | ProtocolVersion |
 
-### Choisir un Nom
+* **254 (unsigned int)** Identifiant du paquet.
+* **ProtocolVersion (unsigned int)** Version du protocole à utiliser.
 
-#### Paquet
 
-###### Protocole Version 5
+## Choisir un Nom
+
+### Paquet
+
+##### Protocole Version 5
 
 | 1 Octet   | ? x 2 Octets |
 | :-------: | :----------: |
 | 0         | Name         |
 
-###### Protocole Version ~
+* **Id (unsigned int)** Identifiant du paquet.
+* **ProtocolVersion (unsigned int)** Version du protocole à utiliser.
+
+##### Protocole Version ~
 
 | 1 Octet   | ? Octets     |
 | :-------: | :----------: |
 | 0         | Name (UTF8)  |
 
-### Passer en mode Spectateur
+* **0 (unsigned int)** Identifiant du paquet.
+* **Name (unsigned int)** Nom du joueur.
 
-#### Paquet
+## Passer en mode Spectateur
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
 | 1         |
 
-### Definir la position Cible
+* **1 (unsigned int)** Identifiant du paquet.
 
-#### Paquet
+## Definir la position Cible
+
+### Paquet
 
 | 1 Octet   | 4 Octets  | 4 Octets  |
 | :-------: | :-------: | :-------: |
 | 16        | X         | Y         |
 
-### Split
+* **16 (unsigned int)** Identifiant du paquet.
 
-#### Paquet
+## Split
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
 | 17        |
 
-### Touche Q enfoncée
+* **17 (unsigned int)** Identifiant du paquet.
 
-#### Paquet
+## Touche Q enfoncée
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
 | 18        |
 
-### Touche Q relâchée
+* **18 (unsigned int)** Identifiant du paquet.
 
-#### Paquet
+## Touche Q relâchée
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
 | 19        |
 
-### Éjecter de la masse
+* **19 (unsigned int)** Identifiant du paquet.
 
-#### Paquet
+## Éjecter de la masse
+
+### Paquet
 
 | 1 Octet   |
 | :-------: |
 | 21        |
+
+* **21 (unsigned int)** Identifiant du paquet.
 

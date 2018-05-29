@@ -34,9 +34,20 @@ Les commandes serveurs sont parsées dans *index.js* et tirées de *modules/Comm
 | **st**                            |    Alias de status                                     |
 
 
-## Configuration initiale
+## Règles du jeu
 
 ***GameServer.js*** (doc) et ***gameserver.ini*** (valeurs et doc)
+
+Une tick de serveur fait **50ms**
+
+### Types de cellules
+
+| Code | Type |
+|------|------|
+| 0    | Player |
+| 1    | Food |
+| 2    | Virus |
+| 3    | Masse ejectée |
 
 ### Cellules (toutes)
 
@@ -47,8 +58,6 @@ Les cellules n'ont pas d'inertie
 ### Joueur
 
 Le joueur voit à **1024 x 592** unités de distance
-
-Le joueur expulse **13** de masse toutes les **100** *ms ?* à **100** unités par seconde de vitesse si il a au moins **32** de masse
 
 Le joueur peut se split jusqu'en **16** fois si il a au moins **36** de masse
 
@@ -66,11 +75,6 @@ La vitesse du split est Vsplit = **vitesse_initiale \* min(150, (masse ^ (-π/π
 
 
 
-### Map
-
-La map fait **7200 x 3200** unités
-
-
 ### Food
 
 La food est de taille **1** et a **0.5** chance de grossir jusqu'à **5** avec **+1** toutes les **120** secondes
@@ -79,3 +83,29 @@ La food est de taille **1** et a **0.5** chance de grossir jusqu'à **5** avec *
 ### Virus
 
 Un virus est de taille **100** et et explose au bout de **7** tirs de masse
+
+
+### Masse ejectée
+
+Le joueur peut expulser **13** de masse toutes les **100** *ms ?* à **100** unités par seconde de vitesse si il a au moins **32** de masse
+
+*l721*
+
+L'angle d'ejection est aléatoire (**+- 5%**)
+
+
+
+
+## Déplacement du joueur
+
+### Map
+
+La map fait **7200 x 3200** unités
+
+On peut sortir de **0.5** rayon de cellule de la map
+
+### Mouvement
+
+La cellule se déplace en direction de la souris :
+- **x = sin(arctan((sourisX - posX)/(sourisY - posY)))**
+- **y = cos(arctan((sourisX - posX)/(sourisY - posY)))**

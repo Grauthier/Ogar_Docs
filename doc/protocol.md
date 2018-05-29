@@ -82,4 +82,75 @@ On n'utilisera pas ce paquet.
 
 ### Messages Clients
 
-...
+### Ouvrir une connexion
+
+#### Paquet
+
+| 1 Octet   | 4 Octets        |
+| :-------: | :-------------: |
+| 254       | ProtocolVersion |
+
+### Choisir un Nom
+
+#### Paquet
+
+###### Protocole Version 5
+
+| 1 Octet   | ? x 2 Octets |
+| :-------: | :----------: |
+| 0         | Name         |
+
+###### Protocole Version ~
+
+| 1 Octet   | ? Octets     |
+| :-------: | :----------: |
+| 0         | Name (UTF8)  |
+
+### Passer en mode Spectateur
+
+#### Paquet
+
+| 1 Octet   |
+| :-------: |
+| 1         |
+
+### Definir la position Cible
+
+#### Paquet
+
+| 1 Octet   | 4 Octets  | 4 Octets  |
+| :-------: | :-------: | :-------: |
+| 16        | X         | Y         |
+
+### Split
+
+#### Paquet
+
+| 1 Octet   |
+| :-------: |
+| 17        |
+
+### Touche Q enfoncée
+
+#### Paquet
+
+| 1 Octet   |
+| :-------: |
+| 18        |
+
+### Touche Q relâchée
+
+#### Paquet
+
+| 1 Octet   |
+| :-------: |
+| 19        |
+
+### Éjecter de la masse
+
+#### Paquet
+
+| 1 Octet   |
+| :-------: |
+| 21        |
+

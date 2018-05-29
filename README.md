@@ -21,5 +21,5 @@ Ctrl+c * 2 pour arrêter le serveur
 
 Dans le répertoire home
 ```shell
-$ visualise -p localhost
+$ ./visualise -p 1443 localhost
 ```
